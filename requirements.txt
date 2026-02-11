@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+scikit-learn
+youtube_transcript_api
+langchain
+langchain_community
+langchain_core
