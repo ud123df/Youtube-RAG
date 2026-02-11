@@ -17,9 +17,12 @@ user_input = st.text_input("🔞Enter the YT video")
 if user_input:
     user_inputs = user_input.split('=')[1].split('&')[0]
 
-transcript_list = ytt_api.fetch(user_inputs)
-
-transcript_list = list(transcript_list)
+try:
+    transcript_list = ytt_api.fetch(user_inputs)
+    transcript_list = list(transcript_list)
+except Exception:
+    st.error("Transcript unavailable or blocked for this video.")
+    st.stop()
 ##############################
 yt=[]
 for i in transcript_list:
@@ -105,6 +108,7 @@ answer = llm.invoke(final_prompt)
 st.success(answer.content)
 
 # header = st.header("hello worlds")
+
 
 
 
