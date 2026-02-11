@@ -14,15 +14,20 @@ os.environ ['GROQ_API_KEY'] = "gsk_6kzd6o1jyKc88UJ13RM2WGdyb3FYJZckQw9wCu4TPyN10
 ytt_api = YouTubeTranscriptApi()
 # user_input = input("Enter the video ID: ")
 user_input = st.text_input("🔞Enter the YT video")
-if user_input:
-    user_inputs = user_input.split('=')[1].split('&')[0]
+user_input = st.text_input("Enter YouTube URL")
 
-try:
-    transcript_list = ytt_api.fetch(user_inputs)
-    transcript_list = list(transcript_list)
-except Exception:
-    st.error("Transcript unavailable or blocked for this video.")
-    st.stop()
+if user_input:
+    try:
+        user_inputs = user_input.split('=')[1].split('&')[0]
+
+        transcript_list = ytt_api.fetch(user_inputs)
+        transcript_list = list(transcript_list)
+
+        yt = [i['text'] for i in transcript_list]
+
+    except Exception:
+        st.error("Transcript unavailable or blocked for this video.")
+
 ##############################
 yt=[]
 for i in transcript_list:
@@ -108,6 +113,7 @@ answer = llm.invoke(final_prompt)
 st.success(answer.content)
 
 # header = st.header("hello worlds")
+
 
 
 
