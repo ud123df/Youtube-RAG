@@ -8,4 +8,5 @@ langchain_community
 langchain_core
 langchain-text-splitters
 sentence-transformers
-
+faiss-cpu
+langchain-huggingface
