@@ -6,4 +6,5 @@ youtube_transcript_api
 langchain
 langchain_community
 langchain_core
-langchain.text_splitter
+langchain-text-splitters
+
