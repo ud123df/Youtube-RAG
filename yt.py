@@ -18,8 +18,8 @@ user_input = st.text_input("Enter YouTube URL")
 
 if user_input:
     try:
-        user_inputs = user_input.split('=')[1].split('&')[0]
-
+        user_inputs = user_input.split('=')[1]
+        st.write(user_inputs)
         transcript_list = ytt_api.fetch(user_inputs)
         transcript_list = list(transcript_list)
 
@@ -113,6 +113,7 @@ answer = llm.invoke(final_prompt)
 st.success(answer.content)
 
 # header = st.header("hello worlds")
+
 
 
 
