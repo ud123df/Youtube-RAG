@@ -15,7 +15,7 @@ ytt_api = YouTubeTranscriptApi()
 # user_input = input("Enter the video ID: ")
 user_input = st.text_input("🔞Enter the YT video")
 user_input = st.text_input("Enter YouTube URL")
-
+transcript_list=None
 if user_input:
     try:
         user_inputs = user_input.split('=')[1]
@@ -113,6 +113,7 @@ answer = llm.invoke(final_prompt)
 st.success(answer.content)
 
 # header = st.header("hello worlds")
+
 
 
 
