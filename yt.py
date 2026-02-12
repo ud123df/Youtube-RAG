@@ -15,7 +15,7 @@ ytt_api = YouTubeTranscriptApi()
 # user_input = input("Enter the video ID: ")
 user_input = st.text_input("🔞Enter the YT video")
 user_input = st.text_input("Enter YouTube URL")
-transcript_list=None
+transcript_list=[]
 if user_input:
     # try:
         user_inputs = user_input.split('=')[1]
@@ -123,3 +123,4 @@ if user_input:
         
         
         
+
